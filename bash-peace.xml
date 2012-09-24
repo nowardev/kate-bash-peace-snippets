@@ -395,5 +395,67 @@ ans=$(kdialog --passivepopup "my message"  "3" --)</fillin>
   <displayarguments></displayarguments>
   <fillin>numberoffile=$(wc -l &lt;"$listoffile")</fillin>
  </item>
-</snippets>
+ <item>
+  <displayprefix></displayprefix>
+  <match>sarraylenght</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>newarray=(hi man this is an array)
 
+echo lenght  ${#newarray[@]}
+
+echo lenght of cell1 ${#newarray[1]}</fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>sarrayextract</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>newarray=(hi man this is an array)
+
+echo   print from 3 element  2 elments  ${#newarray[@]:3:2}</fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>sarray_extrac_and_cut</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>newarray=(hi man this is an array)
+
+echo     ${#newarray[6]:0:2}</fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>sarray_replace</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>newarray=(hi man this is an array)
+
+echo ${newarray[@]/man/girl}</fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>sarray_add_element</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>newarray=(hi man this is an array)
+
+newarray=${newarray[@]}" "element1" "2element" )</fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>sarray_remove_element</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>newarray=(hi man this is an array)
+
+unset newarray[2]</fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>sarray_add_from_command</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>filecontent=($(ls $HOME))</fillin>
+ </item>
+</snippets>
