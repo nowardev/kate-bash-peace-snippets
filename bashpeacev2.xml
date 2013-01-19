@@ -1,10 +1,10 @@
 <snippets namespace="" license="GPLv3" filetypes="*" snippetlicense="public domain" authors="Nowardev Peace" name="bash-peace">
  <item>
   <displayprefix></displayprefix>
-  <match>sedir</match>
+  <match>check_exist_dir</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
-  <fillin>directory="$yourvariable"
+  <fillin>directory="${cursor}$yourvariable"
  if [[  -d "$directory"  ]] ; then
 elif [[  ]] ; then  
 else
@@ -13,10 +13,10 @@ fi </fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>sempty</match>
+  <match>check_if_empty</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
-  <fillin>testvariable="$yourvariable"
+  <fillin>testvariable="$${cursor}yourvariable"
 
 if [[  -z  "$testvariable"    ]] ; then
 echo "$testvariable is empty"
@@ -26,7 +26,7 @@ fi </fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>selse</match>
+  <match>else</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>if [[   ${cursor}  ]] ; then
@@ -39,11 +39,11 @@ fi </fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>scase</match>
+  <match>case</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>
-variable="$yourvariable" ${cursor}
+variable="$${cursor}yourvariable" 
 
 case "$variable" in
 
@@ -60,14 +60,14 @@ esac</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>secho</match>
+  <match>echo</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>echo  $" ${cursor} My echo string that can be translated"</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>smenu</match>
+  <match>menu</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>
@@ -96,10 +96,10 @@ fi</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>sefile</match>
+  <match>check_exist_file</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
-  <fillin>a="$file"  ${cursor}
+  <fillin>a="$${cursor}file"  
 if [[  -e "$a"  ]] ; then
 elif [[  ]] ; then  
 else
@@ -108,7 +108,7 @@ fi </fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>smenuwx</match>
+  <match>menu_without_x</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>function_ansmenu() {
@@ -146,7 +146,7 @@ fi </fillin>
  
 function_menu_antix() {
     clear
-    menulink=$1"Link My Project"
+    menulink=$"Link My Project"
     menutitle=$"My menu title"
     menulabel=()
     menutext=()
@@ -218,7 +218,7 @@ function_menu_antix</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>scaseyes</match>
+  <match>case_yes_no</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>testvariable="$yourvariable" ${cursor}
@@ -237,10 +237,10 @@ esac</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>schecknumber</match>
+  <match>check_if_is_number</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
-  <fillin>testvariable="$yourvariable"
+  <fillin>testvariable="$${cursor}yourvariable"
 
 
 if [[ -z "$testvariable" ]]; then
@@ -260,10 +260,10 @@ fi </fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>sread</match>
+  <match>read</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
-  <fillin>echo $"Title for your read function select a texteditor PRESS ENTER for nano"
+  <fillin>echo $"${cursor}Title for your read function select a texteditor PRESS ENTER for nano"
 read   
 
     if [[ -z "$REPLY" ]];then
@@ -276,7 +276,7 @@ echo</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>swhilefile</match>
+  <match>while_file</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>while read line ;do
@@ -285,7 +285,7 @@ done&lt; "$file"</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>swhilecommand</match>
+  <match>while_command</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>while read line ;do
@@ -294,7 +294,7 @@ done&lt; &lt;(ls " $HOME")</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>swhileffmpeg</match>
+  <match>while_ffmpeg</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>while  read &lt;&amp;3 line ; do
@@ -303,7 +303,7 @@ done 3&lt; "$listoffile"</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>sfor</match>
+  <match>for</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>for i  in ${cursor} 1 2 3 4 5; do
@@ -318,7 +318,7 @@ done</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>sforarray</match>
+  <match>for_array</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>a=0
@@ -330,14 +330,14 @@ done</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>scalculate</match>
+  <match>calculate</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>echo "scale=3 ; $a / $b" | bc</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>sfilefolder</match>
+  <match>file_extract_folder</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>line="/home/user/file.xt.lst"
@@ -346,7 +346,7 @@ outfolder="$\{line%%.*\}"
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>sfileextension</match>
+  <match>file_extract_extension</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>line="/home/user/file.xt.lst"
@@ -354,7 +354,7 @@ extension="$\{line##*.\}"</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>sfilename</match>
+  <match>file_extract_name</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>line="/home/user/file.xt.lst"
@@ -363,28 +363,28 @@ name="$\{name%%.*\}"     # remove extensions like .ogg .ogv .txt</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>skmenu</match>
+  <match>kmenu</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>ans=$(kdialog  --title $"Title for my menu" --menu  $"Choose an option"  1 a 2 b  3 c  --default a -- )</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>skmsg</match>
+  <match>kmsg</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>ans=$(kdialog --title "$title" --msgbox  $"my message" --)</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>skerror</match>
+  <match>kerror</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>ans=$(kdialog --error "My Error" --)</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>skpassive</match>
+  <match>kpassive</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>
@@ -392,14 +392,14 @@ ans=$(kdialog --passivepopup "my message"  "3" --)</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>snumberoffile</match>
+  <match>number_of_file</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>numberoffile=$(wc -l &lt;"$listoffile")</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>sarraylenght</match>
+  <match>array_lenght</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>newarray=(hi man this is an array)
@@ -410,7 +410,7 @@ echo lenght of cell1 $\{#newarray[1]\}</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>sarrayextract</match>
+  <match>array_extract</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>newarray=(hi man this is an array)
@@ -419,7 +419,7 @@ echo   print from 3 element  2 elments  $\{#newarray[@]:3:2\}</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>sarray_extrac_and_cut</match>
+  <match>array_extrac_and_cut</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>newarray=(hi man this is an array)
@@ -428,7 +428,7 @@ echo     $\{#newarray[6]:0:2}</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>sarray_replace</match>
+  <match>array_replace</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>newarray=(hi man this is an array)
@@ -437,7 +437,7 @@ echo $\{newarray[@]/man/girl\}</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>sarray_add_element</match>
+  <match>array_add_element</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>newarray=(hi man this is an array)
@@ -446,7 +446,7 @@ newarray=$\{newarray[@]\}" "element1" "2element" )</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>sarray_remove_element</match>
+  <match>array_remove_element</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>newarray=(hi man this is an array)
@@ -455,9 +455,94 @@ unset newarray[2]</fillin>
  </item>
  <item>
   <displayprefix></displayprefix>
-  <match>sarray_add_from_command</match>
+  <match>array_add_from_command</match>
   <displaypostfix></displaypostfix>
   <displayarguments></displayarguments>
   <fillin>filecontent=($(ls $HOME))</fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>array_print_alternating</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin> a=(1 2 3) ; b=(a b c ) ;  for ((i = 0; i &lt;=${#a[@]} ; i++ )) ; do printf "%s %s " "${a[i]}" "${b[i]}" ; done</fillin>
+ </item> 
+ <item>
+  <displayprefix></displayprefix>
+  <match>replace_value</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>  a="hi girl"  ; echo ${a/girl/man}</fillin>
+ </item> 
+ <item>
+  <displayprefix></displayprefix>
+  <match>simulate_keystroke</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin> xdotool key alt+F2</fillin>
+ </item>  
+ <item>
+  <displayprefix></displayprefix>
+  <match>field_separator</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>IIFS=- read -r y m d &lt;&lt;&lt; "2003-12-24"; echo "$d.$m.$y"</fillin>
+ </item>  
+ <item>
+  <displayprefix></displayprefix>
+  <match>saving_nasty_code</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>cat  &lt;&lt;EOF'&gt;&gt; /tmp/file 
+bla bla
+bla even more bla 
+
+EOF </fillin>
+ </item>
+ <item>
+  <displayprefix></displayprefix>
+  <match>snippet_help</match>
+  <displaypostfix></displaypostfix>
+  <displayarguments></displayarguments>
+  <fillin>#these are the key you can use 
+array_add_element
+array_add_from_command
+array_extrac_and_cut
+array_extract
+array_lenght
+array_print_alternating
+array_remove_element
+array_replace
+calculate
+case
+case_yes_no
+check_exist_dir
+check_exist_file
+check_if_empty
+check_if_is_number
+echo
+else
+field_separator
+file_extract_extension
+file_extract_folder
+file_extract_name
+for
+for_array
+kerror
+kmenu
+kmsg
+kpassive
+menu
+menu_without_x
+number_of_file
+read
+replace_value
+saving_nasty_code
+simulate_keystroke
+snippet_help
+while_command
+while_ffmpeg
+while_file
+ </fillin>
  </item>
 </snippets>
