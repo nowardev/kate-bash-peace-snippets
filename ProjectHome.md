@@ -1,0 +1,1 @@
+my bash snippets for kate text editor
